@@ -140,3 +140,39 @@
 // 14. Read a file synchronously and log its contents. (1 Grade)
 // • Input Example:"./notes.txt"
 // • Output Example: the file content => “This is a note.”
+
+// const path = require("node:path");
+// const fs = require("node:fs");
+// const a = path.join(__dirname, "notes.txt");
+// const f = fs.readFileSync(a, { encoding: "utf-8" });
+// console.log(`the file content => ${f}`);
+//====================================================================================================================================
+// 15. Write asynchronously to a file. (1 Grade)
+// • Input: path:"./async.txt", content:"Async save"
+
+// const path = require("node:path");
+// const fs = require("node:fs");
+// const a = path.join(__dirname, "notes.txt");
+// fs.writeFile(a, "Async save", (err) => {
+//   console.log(err);
+// });
+//====================================================================================================================================
+// 16. Check if a directory exists. (0.5 Grade)
+// • Input Example: "./notes.txt"
+// • Output Example: true
+
+// const fs = require("node:fs");
+// const exists = fs.existsSync("A_1/notes.txt");
+// console.log(exists);
+//====================================================================================================================================
+// 17. Write a function that returns the OS platform and CPU architecture. (0.5 Grade)
+// • Output Example: {Platform: “win32”, Arch: “x64”}
+
+// const os = require("node:os");
+// function q_17() {
+//   console.log({
+//     platform: os.platform(),
+//     arch: os.arch(),
+//   });
+// }
+// q_17();
