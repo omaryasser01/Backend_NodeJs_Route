@@ -1,16 +1,15 @@
 const path = require("node:path");
 const fs = require("node:fs");
 const http = require("node:http");
-// serve.listen(3000, () => {
-//   console.log("S");
-// });
 
 const absolutePath1 = path.resolve("./A_1/notes.txt");
+const absolutePath4 = path.resolve("./A_1/users.json");
 
-const readFileStream = fs.createReadStream(absolutePath1, {
-  encoding: "utf8",
-  highWaterMark: 500,
-});
+function readUsers() {
+  const data = fs.readFileSync(absolutePath4, "utf-8");
+  return JSON.parse(data);
+}
+const view = readUsers();
 
 // // 1. Use a readable stream to read a file in chunks and log each chunk. (0.5 Grade)
 // // • Input Example: "./big.txt"
@@ -47,24 +46,6 @@ const readFileStream = fs.createReadStream(absolutePath1, {
 // 1. Create an API that adds a new user to your users stored in a JSON file. (ensure that the email of the new user doesn’t exist before) (1 Grade)
 // o URL: POST /user
 
-const users = [
-  {
-    name: "omar",
-    email: "omar@gmail",
-    age: 20,
-  },
-  {
-    name: "ali",
-    email: "ali@gmail",
-    age: 25,
-  },
-  {
-    name: "amr",
-    email: "amr@gmail",
-    age: 33,
-  },
-];
-
 // const server = http.createServer((req, res) => {
 //   let data = "";
 
@@ -74,8 +55,7 @@ const users = [
 
 //   req.on("end", (chunk) => {
 //     const newUser = JSON.parse(data);
-
-//     const userExist = users.find((a) => {
+//     const userExist = view.find((a) => {
 //       if (a.email === newUser.email) {
 //         return a;
 //       }
@@ -88,9 +68,9 @@ const users = [
 //       return res.end();
 //     }
 
-//     users.push(newUser);
+//     view.push(newUser);
 //     res.writeHead(200, { "content-type": "application/json" });
-//     res.write(JSON.stringify({ message: "user added", users }));
+//     res.write(JSON.stringify({ message: "user added", view }));
 //     res.end();
 //   });
 // });
@@ -115,7 +95,7 @@ const users = [
 
 //     req.on("end", () => {
 //       const { name, age, email } = JSON.parse(data);
-//       const update = users.find((a) => {
+//       const update = view.find((a) => {
 //         if (a.email == email) {
 //           a.age = age;
 //           return a;
@@ -127,7 +107,7 @@ const users = [
 //         return res.end();
 //       }
 //       res.writeHead(202, { "content-type": "application/json" });
-//       res.write(JSON.stringify({ message: "user updated", users }));
+//       res.write(JSON.stringify({ message: "user updated", update }));
 //       res.end();
 //     });
 //   }
@@ -150,7 +130,7 @@ const users = [
 
 //     req.on("end", () => {
 //       const { email } = JSON.parse(data);
-//       const index = users.findIndex((a) => {
+//       const index = view.findIndex((a) => {
 //         return a.email == email;
 //       });
 //       if (index == -1) {
@@ -158,9 +138,9 @@ const users = [
 //         res.write("user is not found");
 //         return res.end();
 //       }
-//       users.splice(index, 1);
+//       view.splice(index, 1);
 //       res.writeHead(202, { "content-type": "application/json" });
-//       res.write(JSON.stringify({ message: "user deleted", users }));
+//       res.write(JSON.stringify({ message: "user deleted", view }));
 //       res.end();
 //     });
 //   }
@@ -179,7 +159,7 @@ const users = [
 //   const { method, url } = req;
 //   if (method == "GET" && url == "/all") {
 //     res.writeHead(200, { "content-type": "application/json" });
-//     res.write(JSON.stringify({ messaga: "all users", users }));
+//     res.write(JSON.stringify({ messaga: "all users", view }));
 //     res.end();
 //   }
 // });
