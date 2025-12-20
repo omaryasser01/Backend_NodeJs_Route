@@ -1,15 +1,15 @@
-const path = require("node:path");
-const fs = require("node:fs");
-const http = require("node:http");
+// const path = require("node:path");
+// const fs = require("node:fs");
+// const http = require("node:http");
 
-const absolutePath1 = path.resolve("./A_1/notes.txt");
-const absolutePath4 = path.resolve("./A_1/users.json");
+// const absolutePath1 = path.resolve("./A_1/notes.txt");
+// const absolutePath4 = path.resolve("./A_1/users.json");
 
-function readUsers() {
-  const data = fs.readFileSync(absolutePath4, "utf-8");
-  return JSON.parse(data);
-}
-const view = readUsers();
+// function readUsers() {
+//   const data = fs.readFileSync(absolutePath4, "utf-8");
+//   return JSON.parse(data);
+// }
+// const view = readUsers();
 
 // // 1. Use a readable stream to read a file in chunks and log each chunk. (0.5 Grade)
 // // • Input Example: "./big.txt"
@@ -167,3 +167,41 @@ const view = readUsers();
 //   console.log("running");
 // });
 //==============================================================================================================
+
+// 1- What is the Node.js Event Loop?
+// system that lets Node.js run multiple tasks asynchronously without blocking the main thread.
+// the way nodejs excute lines in order to not block any code
+// اى log بتتنفذ الاول
+
+// بعد كدا الmicrotasks و لو حاجة فيها next بتاخد اولوية
+
+// بعد كدا التايمرز بقى لو finish بينفذها لو مخلصتش بيحطها فى الArray بتاعت timers[]
+
+// 2. What is Libuv and What Role Does It Play in Node.js?
+// c library that provides event loop and handles asycnhronous operations , contains virtual threads
+
+// 3. How Does Node.js Handle Asynchronous Operations Under the Hood?
+// 1. excute settimeout and setImmediate (finished)
+// 2. excute callbacks for completed operations
+// 3.handles new events and finished Timers
+// 4.excute setImmediate callbacks
+// 5.close callbacks phase
+
+// 4. What is the Difference Between the Call Stack, Event Queue, and Event Loop in Node.js?
+// Stack = what’s running now
+
+// Queue = what’s waiting to run
+
+// Loop = moves tasks from the queue to the stack when possible
+
+// 5. What is the Node.js Thread Pool and How to Set the Thread Pool Size?
+// the virtual threads that excute requests , changed from command line based on OS
+
+// set UV_THREADPOOL_SIZE=8 && node appendFile.js
+
+// 6. How Does Node.js Handle Blocking and Non-Blocking Code Execution?
+// Asynchronous tasks are sent to virtual threads.
+
+// When finished, their callbacks go into the event queue.
+
+// The event loop checks the call stack and executes callbacks when the stack is empty.
