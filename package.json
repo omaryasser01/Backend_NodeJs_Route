@@ -1,0 +1,24 @@
+{
+  "name": "express_new",
+  "version": "1.0.0",
+  "description": "assignment solution ",
+  "homepage": "https://github.com/omaryasser01/Backend_NodeJs_Route#readme",
+  "bugs": {
+    "url": "https://github.com/omaryasser01/Backend_NodeJs_Route/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omaryasser01/Backend_NodeJs_Route.git"
+  },
+  "license": "ISC",
+  "author": "omar yasser",
+  "type": "commonjs",
+  "main": "assignment_4.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "hello"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

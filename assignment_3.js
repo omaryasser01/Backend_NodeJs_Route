@@ -1,6 +1,7 @@
 // const path = require("node:path");
 // const fs = require("node:fs");
 // const http = require("node:http");
+// const { json } = require("body-parser");
 
 // const absolutePath1 = path.resolve("./A_1/notes.txt");
 // const absolutePath4 = path.resolve("./A_1/users.json");
@@ -10,6 +11,10 @@
 //   return JSON.parse(data);
 // }
 // const view = readUsers();
+
+// best way to read data from file
+// const view = JSON.parse(fs.readFileSync(absolutePath4, "utf8"));
+// console.log(view);
 
 // // 1. Use a readable stream to read a file in chunks and log each chunk. (0.5 Grade)
 // // • Input Example: "./big.txt"
