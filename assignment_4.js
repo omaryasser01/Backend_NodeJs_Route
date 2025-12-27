@@ -45,7 +45,6 @@ app.listen(port, () => {
 // Note: Remember to update the corresponding values in the JSON file
 // o URL: PATCH /user/:id
 
-// app.use(express.json());
 // app.patch("/user/:id", (req, res, next) => {
 //   const wantedID = req.params.id;
 //   const index = users.findIndex((user) => {
@@ -108,6 +107,63 @@ app.listen(port, () => {
 //   fs.writeFileSync(abspath, JSON.stringify(users, null, 2));
 //   res.json({ message: "user deleted successfully", users });
 // }
+
+// app.use((req, res, next) => {
+//   res.status(404).json({ message: "error , not found" });
+// });
+//================================================================================================================
+// 4. Create an API that gets a user by their name. The name will be provided as a query parameter. (1 Grade)
+//  URL: GET /user/getByName
+
+// app.get("/user/getByName", (req, res, next) => {
+//   const newName = req.query.name;
+//   const index = users.findIndex((user) => {
+//     return user.name === newName;
+//   });
+//   if (index < 0) {
+//     return res.status(404).json({ message: "user name is not found" });
+//   }
+//   res.status(200).json(users[index]);
+// });
+
+// app.use((req, res, next) => {
+//   res.status(404).json({ message: "error , not found" });
+// });
+//================================================================================================================
+// 5. Create an API that gets all users from the JSON file. (1 Grade)
+// o URL: GET /user
+
+// app.get("/users", (req, res, next) => {
+//   res.status(200).json(users);
+// });
+//================================================================================================================
+// 6. Create an API that filters users by minimum age. (1 Grade)
+// o URL: GET /user/filter
+
+// app.get("/user/filter", (req, res, next) => {
+//   const age = Number(req.query.minAge);
+//   const newUser = users.filter((users) => users.age > age);
+
+//   res.status(200).json(newUser);
+
+//   app.use((req, res, next) => {
+//     res.status(404).json({ message: "error , not found" });
+//   });
+// });
+//================================================================================================================
+// 7. Create an API that gets User by ID. (1 Grade)
+// o URL: GET /user/:id
+// o Output:
+
+// app.get("/user/:id", (req, res, next) => {
+//   const wantedID = req.params.id;
+
+//   const index = users.findIndex((user) => {
+//     return user.id == wantedID;
+//   });
+
+//   res.json(users[index]);
+// });
 
 // app.use((req, res, next) => {
 //   res.status(404).json({ message: "error , not found" });
