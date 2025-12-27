@@ -86,3 +86,30 @@ app.listen(port, () => {
 //   res.status(404).json({ message: "error , not found" });
 // });
 //================================================================================================================
+// Create an API that deletes a User by ID. The user id should be retrieved from either the request body or optional params. (1 Grade)
+// Note: Remember to delete the user from the file
+// o URL: DELETE /user{/:id}
+
+// app.use(express.json());
+// app.delete("/user/:id", organizeDelete);
+// app.delete("/user", organizeDelete);
+
+// function organizeDelete(req, res, next) {
+//   const wantedID = req.params.id || req.body.id;
+//   const index = users.findIndex((user) => {
+//     if (user.id == wantedID) {
+//       return user;
+//     }
+//   });
+//   if (index < 0) {
+//     return res.status(404).json({ message: "user id is not found" });
+//   }
+//   users.splice(index, 1);
+//   fs.writeFileSync(abspath, JSON.stringify(users, null, 2));
+//   res.json({ message: "user deleted successfully", users });
+// }
+
+// app.use((req, res, next) => {
+//   res.status(404).json({ message: "error , not found" });
+// });
+//================================================================================================================
